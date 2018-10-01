@@ -1,0 +1,38 @@
+package com.example.ankita.currency_converter;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+public void currencyconverter(View view) {
+
+    Log.i("Info", "Button pressed");
+    //call the edittext with help of id
+    EditText editText = findViewById(R.id.editText);
+
+    //
+    String amountInPounds = editText.getText().toString();
+
+    //convert amountInPounds in string to double
+    double amountInPoundsDouble = Double.parseDouble(amountInPounds);
+
+    // multiply amountInPoundsDouble to 1.3 for amountInDollarDouble
+    double amountInDollarDouble = amountInPoundsDouble * 1.3;
+
+    // convert amountInDollarDouble in double to string
+    String amountInDollarsString = String.format("%.2f", amountInDollarDouble);
+
+    Toast.makeText(this, "€" + amountInPounds + "is $" + amountInDollarsString, Toast.LENGTH_LONG).show();
+
+}
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
